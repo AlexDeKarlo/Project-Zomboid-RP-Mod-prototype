@@ -23,26 +23,38 @@ local function SaveATMData(data)
     end
 end
 
---[[
-local function ReciveATMData(data)
-	local countINT = 0
-	local pin = "4rtgrh54h6ytj67j65kj67k"
-	local dataRead = getFileReader("/ServerATMData/" .. tostring(data._Wallet) .. ".txt", false)
+local function ReciveATMData(args)
+	local wallet = args.wallet
+	local pin = args.pin
+	local count = args.count
+	local playerid = args.playerid
+	
+	local dataPIN = ""
+	local dataCOUNT = 0
+	
+	local dataRead = getFileReader("/ServerATMData/" .. tostring(wallet) .. ".txt", false)
 	if dataRead then 
-		pin = dataRead:readLine()
+		dataPIN = dataRead:readLine()
 		countSTR = dataRead:readLine()
-		countINT = tonumber(countSTR)
+		dataCOUNT = tonumber(countSTR)
 		dataRead:close()
 	end
 	
-	if(dataRead == nil) then sendServerCommand("ProjectRP", "SAYCOMMAND", { SAY = "WALLET NOT EXIST", ARG2= true}) end
-	elseif(pin ~= data._Pin) then sendServerCommand("ProjectRP", "SAYCOMMAND", { SAY = "Wrong PIN", ARG2= true}) end
-	elseif(countINT < data._Count) then sendServerCommand("ProjectRP", "SAYCOMMAND", { SAY = "NOT ENOUGH MONEY", ARG2= true}) end
-	else sendServerCommand("ProjectRP", "TESTFROMSERVER", { ARG1 = true, ARG2 = true })
-end ]]
-
-local function ReciveATMData()
-	sendServerCommand("ProjectRP", "TESTFROMSERVER", { ARG1 = true, ARG2= true})
+	if dataPIN ~= pin then
+	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= playerid})
+	return
+	end
+	
+	if count > dataCOUNT then
+	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= playerid})
+	return
+	end
+	
+	sendServerCommand("ProjectRP", "ATMRECIVEMONEYTOPLAYER", { ARG1 = count, ARG2= playerid})
+	local dataFile = getFileWriter("/ServerATMData/" .. tostring(wallet) .. ".txt", true, false);
+		dataFile:writeln(tostring(pin));
+		dataFile:writeln(tostring(dataCOUNT - count));
+        dataFile:close()	
 end
 
 local onATMDataReceived = function(_module, command, player, args)   
@@ -52,7 +64,7 @@ local onATMDataReceived = function(_module, command, player, args)
 	end 
 	
 	if command == "ReciveFromATM" then    
-        ReciveATMData()
+        ReciveATMData(args)
 	end 
 	
 end

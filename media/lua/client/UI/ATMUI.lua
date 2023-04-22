@@ -24,7 +24,7 @@ local function INCOME(player,ATM_NUM,COUNT)
 			invetory:Remove(item)
 			item = invetory:FindAndReturn("Base.Money")
 		end
-	SendToATM(ATM_NUM,COUNT)
+	SendToATM(ATM_NUM,COUNT,player)
 	elseif(COUNT > 1000) then player:Say(getText("ContextMenu_ProjectRP_CHATTOMANYMONEY")) 
 	else player:Say(getText("ContextMenu_ProjectRP_CHATTOLOWMONEY"))
 	end 
@@ -37,9 +37,6 @@ local function OUTCOME(player,ATM_NUM,PIN,COUNT)
 	invetory = player:getInventory()
 
 	if(COUNT <=1000) then 
-		for i = 1, COUNT, 1 do -- цикл от 1 до 10 с шагом 1
-			invetory:AddItem("Base.Money")
-		end	
 	ReciveFromATM(ATM_NUM,PIN,COUNT)
 	else player:Say(getText("ContextMenu_ProjectRP_CHATTOMANYMONEY"))
 	end

@@ -18,13 +18,18 @@ function SendToATM(wallet,count)
 end
 
 
-function ReciveFromATM(wallet,pin,count)
+function ReciveFromATM(wallet,pin,count,player)
 
+	local player = getPlayer()
+    local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	
 	local FromAtmData = {}
 	
     FromAtmData.wallet = wallet;
 	FromAtmData.pin = pin;
     FromAtmData.count = count;
+	FromAtmData.playerid = steamID;
 	
 	print("Pin "..tostring(FromAtmData.pin))
     print("Wallet "..tostring(FromAtmData.wallet))

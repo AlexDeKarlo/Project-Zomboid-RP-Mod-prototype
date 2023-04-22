@@ -11,6 +11,7 @@ IGUI_RU = {
 	IGUI_ATMIFNOUPDATE = "Обновить ПИН",
 	IGUI_ATMTRANSFER = "Перевод",
 	IGUI_ATMBALANCE = "Баланс",
+	IGUI_ATMERROR = "Ошибка",
 	IGUI_ATM_YORENUM = "Ваш номер счета:",
 	IGUI_ATMPIN = "ПИН",
 	IGUI_ATM_IN = "Внести",

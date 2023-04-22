@@ -14,7 +14,7 @@ local function OpenPass(Passport)
 	CreatePassportUI(player)
 end
 
-local function ShowPass(Passport)
+--[[local function ShowPass(Passport)
 	local player = FindPlayer(Passport:getName())
 	if(player == nil) then return end
 	
@@ -22,7 +22,7 @@ local function ShowPass(Passport)
 	player:Say(getText("ContextMenu_ProjectRP_CHATShowPassport"))
 	player:Say(getText("ContextMenu_ProjectRP_CHATNameAndSurPassport")..player:getFullName())	
 	player:Say(getText("ContextMenu_ProjectRP_CHATSurviveTime")..player:getTimeSurvived())	
-end
+end]]
 
 local function FillContextItems(playerIndex, tables, items)
 	items = ISInventoryPane.getActualItems(items)
@@ -31,11 +31,10 @@ local function FillContextItems(playerIndex, tables, items)
 		local fullname = item:getFullType()
 		if(fullname == "ProjectRP.Passport") then
 		tables:addOptionOnTop(getText("ContextMenu_ProjectRP_OpenPassport"), playerIndex,function() OpenPass(item) end)
-        tables:addOptionOnTop(getText("ContextMenu_ProjectRP_ShowPassport"), playerIndex,function() ShowPass(item) end)
+        --tables:addOptionOnTop(getText("ContextMenu_ProjectRP_ShowPassport"), playerIndex,function() ShowPass(item) end)
 		end
     end
 	
 end
 
---Events.OnPlayerMove.Add(FindPlayer)
 Events.OnFillInventoryObjectContextMenu.Add(FillContextItems)

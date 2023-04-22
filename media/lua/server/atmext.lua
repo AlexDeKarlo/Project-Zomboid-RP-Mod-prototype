@@ -6,7 +6,7 @@ local function SaveATMData(data)
 	
 		local countINT = 0
 		local pin = "1234"
-		
+			
 		local dataRead = getFileReader("/ServerATMData/" .. tostring(data.wallet) .. ".txt", false)
 		if dataRead then 
 		pin = dataRead:readLine()
@@ -14,12 +14,11 @@ local function SaveATMData(data)
 		countINT = tonumber(countSTR)
 		dataRead:close()
 		end
-		
-        local dataFile = getFileWriter("/ServerATMData/" .. tostring(data.wallet) .. ".txt", true, false);
+				
+        local dataFile = getFileWriter("/ServerATMData/" .. tostring(data.wallet) .. ".txt", false, false);
 		dataFile:writeln(tostring(pin));
 		dataFile:writeln(tostring(data.count + countINT));
         dataFile:close()	
-        print("SPDServer: " .. data.username .. " data saved to file!");  
     end
 end
 
@@ -57,6 +56,47 @@ local function ReciveATMData(args)
         dataFile:close()	
 end
 
+local function CreateATMACcauntData(data)
+    if data then
+	
+		local countINT = 0
+		local pin = "1234"
+		
+		pin = data.pin
+		
+		local dataRead = getFileReader("/ServerATMData/" .. tostring(data.steamID) .. ".txt", false)
+		if dataRead then 
+		oldpin = dataRead:readLine()
+		countSTR = dataRead:readLine()
+		countINT = tonumber(countSTR)
+		dataRead:close()
+		end
+		
+        local dataFile = getFileWriter("/ServerATMData/" .. tostring(data.steamID) .. ".txt", false, false);
+		dataFile:writeln(tostring(pin));
+		dataFile:writeln(tostring(countINT));
+        dataFile:close()	
+    end
+end
+
+local function ATMAccauntBalanceGetData(data)
+    if data then
+	
+	local dataPIN = ""
+	local dataCOUNT = 0
+	local steamID = data.steamID
+	
+	local dataRead = getFileReader("/ServerATMData/" .. tostring(steamID) .. ".txt", false)
+	if dataRead then 
+		dataPIN = dataRead:readLine()
+		countSTR = dataRead:readLine()
+		dataCOUNT = tonumber(countSTR)
+		dataRead:close()
+	end
+	sendServerCommand("ProjectRP", "ATMAccauntBalanceGetData", { ARG1 = "IGUI_ATMBALANCE", ARG2= steamID, ARG3 = dataCOUNT})
+    end
+end
+
 local onATMDataReceived = function(_module, command, player, args)   
 	
 	if command == "SendToATM" then      
@@ -65,6 +105,14 @@ local onATMDataReceived = function(_module, command, player, args)
 	
 	if command == "ReciveFromATM" then    
         ReciveATMData(args)
+	end 
+	
+	if command == "CreateATMACcaunt" then    
+        CreateATMACcauntData(args)
+	end 
+	
+	if command == "ATMAccauntBalanceGet" then    
+        ATMAccauntBalanceGetData(args)
 	end 
 	
 end

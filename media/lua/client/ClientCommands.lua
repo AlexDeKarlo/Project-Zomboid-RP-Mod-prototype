@@ -8,6 +8,16 @@ local function PlayerSayCommand(_data)
 	end
 end
 
+local function PlayerSayCommandWithAddArg(_data)
+	player = getPlayer()
+	local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	if(steamID == _data.ARG2) then
+	player:Say(getText(_data.ARG1) .. ": " .. tostring(_data.ARG3))
+	end
+end
+
+
 local function PlayerAddMoney(_data)
 	player = getPlayer()
 	local username = player:getUsername()
@@ -29,9 +39,15 @@ local function onServerATMCommand(_module, _command, _data)
 		PlayerSayCommand(_data)
     end
 	
+	if _command == "ATMAccauntBalanceGetData" then
+		PlayerSayCommandWithAddArg(_data)
+    end
+	
 	if _command == "ATMRECIVEMONEYTOPLAYER" then
 		PlayerAddMoney(_data)
     end
+	
+
 	
 end
 Events.OnServerCommand.Add(onServerATMCommand)---server to client

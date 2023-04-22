@@ -11,8 +11,8 @@ local function Back(player)
 end
 
 local function INCOME(player,ATM_NUM,COUNT)
-	if player==nil or ATM_NUM == nil or COUNT == nil then return end
-	
+	if player==nil or ATM_NUM == nil or COUNT == nil or COUNT <0 then return end
+	COUNT = math.floor(COUNT)
 	invetory = player:getInventory()
 	
 	local item
@@ -33,7 +33,8 @@ local function INCOME(player,ATM_NUM,COUNT)
 end
 
 local function OUTCOME(player,ATM_NUM,PIN,COUNT)
-	if player==nil or ATM_NUM == nil or PIN==nil or COUNT == nil then return end
+	if player==nil or ATM_NUM == nil or PIN==nil or COUNT == nil or COUNT <0 then return end
+	COUNT = math.floor(COUNT)
 	invetory = player:getInventory()
 
 	if(COUNT <=1000) then 
@@ -44,18 +45,27 @@ local function OUTCOME(player,ATM_NUM,PIN,COUNT)
 end
 
 local function UPDATE(player,NEWPIN)
+	CreateATMACcaunt(_,NEWPIN,0,player)
+	CloseUI( _)	
+end
+
+local function BALANCE(player,NEWPIN)
+	GETATMACcauntBalance(_,_,_,player)
 	CloseUI( _)	
 end
 
 local function CreateATMINUI(player)
 	UI = NewUI();
 	
+	local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	
     UI:addText("", getText("IGUI_ATM_IN"), "Title", "Center");
 	UI:nextLine()
 	UI:addImage("image1", "media/ui/atm.png")
     UI:nextLine()
 	UI:addText(_, getText("IGUI_ATMNUM"))
-	UI:addEntry("INPUT1", "", false)
+	UI:addEntry("INPUT1", tostring(steamID), false)
 	UI:nextLine()
 	UI:addText(_, getText("IGUI_ATM_COUNT"))
 	UI:addEntry("INPUT2", "", true)
@@ -71,12 +81,15 @@ end
 local function CreateATMOUTUI(player)
 	UI = NewUI();
 	
+	local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	
     UI:addText("", getText("IGUI_ATM_OUT"), "Title", "Center");
 	UI:nextLine()
 	UI:addImage("image1", "media/ui/atm.png")
 	UI:nextLine()
 	UI:addText(_, getText("IGUI_ATMNUM"))
-	UI:addEntry("INPUT1", "", false)
+	UI:addEntry("INPUT1", tostring(steamID), false)
 	UI:nextLine()
 	UI:addText(_, getText("IGUI_ATMPIN"))
 	UI:addEntry("INPUT2", "", false)
@@ -104,18 +117,18 @@ local function CreateATMAccauntUI(player)
 	UI:nextLine()
 	
 	UI:addText(_, getText("IGUI_ATM_YORENUM"))
-	UI:nextLine()
 	UI:addText("_", tostring(steamID))
-		
 	UI:nextLine()
 	
 	UI:addText(_, getText("IGUI_ATMIFNOPIN"))
-	UI:nextLine()
-	UI:addEntry("PININPUT", "", true)
-	
-	UI:nextLine()
-	UI:addButton("button1", getText("IGUI_ATM_BACK"), function(button,args) Back(player) end)
+	UI:addEntry("PININPUT", "", false)
 	UI:addButton("button2", getText("IGUI_ATMIFNOUPDATE"), function(button,args) UPDATE(player,UI["PININPUT"]:getValue()) end)
+	UI:nextLine()
+	
+	UI:addButton("button3", getText("IGUI_ATMBALANCE"), function(button,args) BALANCE(player,UI["PININPUT"]:getValue()) end)
+	UI:nextLine()
+	
+	UI:addButton("button1", getText("IGUI_ATM_BACK"), function(button,args) Back(player) end)
 	
     UI:setBorderToAllElements(true);                        
     UI:saveLayout();                                    
@@ -148,12 +161,10 @@ function CreateATMUI(player)
 	UI:addButton("button1", getText("IGUI_ATM_IN"),function(button,args) InComeUI(player) end)
 	UI:addButton("button2", getText("IGUI_ATM_OUT"),function(button,args)  OutComeUI(player)  end)
 	UI:nextLine()
-	UI:addButton("button3", getText("IGUI_ATMIFNO"),function(button,args)  AccauntUI(player)  end)
-	UI:nextLine()
 	UI:addButton("button4", getText("IGUI_ATMTRANSFER"),function(button,args)  AccauntUI(player)  end)
 	UI:nextLine()
-	UI:addButton("button5", getText("IGUI_ATMBALANCE"),function(button,args)  AccauntUI(player)  end)
-	
+	UI:addButton("button3", getText("IGUI_ATMIFNO"),function(button,args)  AccauntUI(player)  end)
+
     UI:setBorderToAllElements(true);                        -- Add border
     UI:saveLayout();                                    -- Save and create the UI
 end

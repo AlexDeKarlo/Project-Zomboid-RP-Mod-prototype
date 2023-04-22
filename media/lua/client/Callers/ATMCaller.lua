@@ -37,3 +37,42 @@ function ReciveFromATM(wallet,pin,count,player)
 	
     sendClientCommand("ProjectRP", "ReciveFromATM", FromAtmData)
 end
+
+function CreateATMACcaunt(wallet,pin,count,player)
+
+    local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	
+	local FromAtmData = {}
+	
+    FromAtmData.wallet = wallet;
+	FromAtmData.pin = pin;
+    FromAtmData.count = count;
+	FromAtmData.steamID = steamID;
+	
+	print("Pin "..tostring(FromAtmData.pin))
+    print("Wallet "..tostring(FromAtmData.wallet))
+	print("Count "..tostring(FromAtmData.count))
+	
+    sendClientCommand("ProjectRP", "CreateATMACcaunt", FromAtmData)
+end
+
+function GETATMACcauntBalance(wallet,pin,count,player)
+
+    local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	
+	local FromAtmData = {}
+	
+    FromAtmData.wallet = wallet;
+	FromAtmData.pin = pin;
+    FromAtmData.count = count;
+	FromAtmData.steamID = steamID;
+	
+	print("Pin "..tostring(FromAtmData.pin))
+    print("Wallet "..tostring(FromAtmData.wallet))
+	print("Count "..tostring(FromAtmData.count))
+	
+    sendClientCommand("ProjectRP", "ATMAccauntBalanceGet", FromAtmData)
+end
+

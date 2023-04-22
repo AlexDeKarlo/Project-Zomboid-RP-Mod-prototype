@@ -1,0 +1,12 @@
+module ProjectRP {
+    imports {
+        Base
+    }
+    item Passport
+    {
+        Type         = Literature,
+        DisplayName  = Passport,
+        Icon         = MyIcon.png,
+        Weight       = 0.1,
+    }
+}

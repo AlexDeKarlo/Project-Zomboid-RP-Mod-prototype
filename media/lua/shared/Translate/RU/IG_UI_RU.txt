@@ -1,0 +1,14 @@
+IGUI_RU = {
+	IGUI_Passport = "Паспорт",
+	IGUI_Name_SurName = "Имя и фамилия",
+	IGUI_TimeInState = "Время в штате",
+	IGUI_Photo = "Фотография",
+	
+	IGUI_OpenATM = "Банкомат",
+	IGUI_ATMNUM= "Номер счета",
+	IGUI_ATMPIN = "ПИН",
+	IGUI_ATM_IN = "Внести",
+	IGUI_ATM_OUT = "Снять",
+	IGUI_ATM_BACK = "Вернуться",
+	IGUI_ATM_COUNT = "Сумма",
+}

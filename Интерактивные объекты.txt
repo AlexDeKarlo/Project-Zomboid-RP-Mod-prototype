@@ -1,0 +1,65 @@
+Банкоматы
+location_business_bank_01_66 location_business_bank_01_67
+location_business_bank_01_64 location_business_bank_01_65
+
+Лифт
+fixtures_escalators_01_51 fixtures_escalators_01_50
+
+Мусорные баки
+trashcontainers_01_17 trashcontainers_01_16
+
+Мусор
+trash_01_48
+
+Телефон
+street_decoration_01_39
+
+Компьютеры
+appliances_com_01_76 appliances_com_01_77 appliances_com_01_78 appliances_com_01_79
+appliances_com_01_72 appliances_com_01_73 appliances_com_01_74 appliances_com_01_75
+
+Цифровые стойки
+appliances_com_01_52 appliances_com_01_53 appliances_com_01_54 appliances_com_01_55
+
+Кассовые аппараты
+location_shop_accessories_01_0 location_shop_accessories_01_1 location_shop_accessories_01_2 location_shop_accessories_01_3
+location_shop_accessories_01_20 location_shop_accessories_01_21 location_shop_accessories_01_22 location_shop_accessories_01_23
+
+Конвеер 
+industry_02_46 industry_02_47
+
+Пила
+industry_02_154 industry_02_155
+
+Ручной стонок
+industry_02_156 industry_02_159
+
+Ферма собирать
+vegetation_farm_01_0 vegetation_farm_01_1
+
+Ферма сдавать
+vegetation_farm_01_11
+
+Бревна
+camping_01_48 camping_01_49 camping_01_50 camping_01_53
+
+Игровой автомат
+recreational_01_16 recreational_01_17 recreational_01_18 recreational_01_19
+
+Ящик для Конвеера 
+location_military_generic_01_0
+
+Ящик для Ручного стонка
+location_military_generic_01_8
+
+Дестилятор
+location_business_distillery_01_24 location_business_distillery_01_25 location_business_distillery_01_26
+
+Бочки Дестилятора
+location_business_distillery_01_4
+
+Бетономешалка
+constuction_01_6 constuction_01_7
+
+Бетономешалка сдавать
+constuction_01_4

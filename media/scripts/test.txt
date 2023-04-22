@@ -1,0 +1,19 @@
+module ProjectRP {
+    imports {
+        Base
+    }
+    item MyItem
+    {
+        Type         = Normal,
+        DisplayName  = Passport,
+        Icon         = MyIcon.png,
+        Weight       = 0.1,
+		WorldStaticModel = MyItem,
+    }
+	model MyItem
+    {
+        mesh = bow,
+		texture = testText,
+		scale = 0.003,
+    }
+}

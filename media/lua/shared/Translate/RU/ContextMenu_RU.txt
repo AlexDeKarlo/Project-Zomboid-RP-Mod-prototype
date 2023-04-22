@@ -1,0 +1,13 @@
+ContextMenu_RU = {		
+	ContextMenu_ProjectRP_OpenPassport = "Посмотреть паспорт",
+	ContextMenu_ProjectRP_ShowPassport = "Показать паспорт",
+	ContextMenu_ProjectRP_CHATTakePassport = "Взял паспорт",
+	ContextMenu_ProjectRP_CHATShowPassport = "Показал паспорт",
+	ContextMenu_ProjectRP_CHATNameAndSurPassport = "Имя и фамилия: ",
+	ContextMenu_ProjectRP_CHATSurviveTime = "Прожито в штате: ",
+	
+	ContextMenu_ProjectRP_OpenATM = "Банкомат",
+	ContextMenu_ProjectRP_CHATTOMANYMONEY = "Операции более чем с 1000$ не доступны",
+	ContextMenu_ProjectRP_CHATTOLOWMONEY = "Недостаточно средств",
+	
+}

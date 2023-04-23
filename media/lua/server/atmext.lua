@@ -16,12 +16,17 @@ local function SaveATMData(data)
 		dataRead:close()
 		end
 			
-		if(pin == nil) then return end
+		if(pin == nil) then 
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERRORWALLET", ARG2= steamid})
+		return 
+		end
 			
         local dataFile = getFileWriter("/ServerATMData/" .. tostring(data.wallet) .. ".txt", false, false);
 		dataFile:writeln(tostring(pin));
 		dataFile:writeln(tostring(data.count + countINT));
         dataFile:close()	
+		
+		sendServerCommand("ProjectRP", "ATMREMOVEMONEYFROMPLAYER", { ARG1 = data.count, ARG2= steamid})
 		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMOK", ARG2= steamid})
     end
 end
@@ -32,7 +37,7 @@ local function ReciveATMData(args)
 	local count = args.count
 	local playerid = args.playerid
 	
-	local dataPIN = ""
+	local dataPIN = nil
 	local dataCOUNT = 0
 	
 	local dataRead = getFileReader("/ServerATMData/" .. tostring(wallet) .. ".txt", false)
@@ -43,13 +48,18 @@ local function ReciveATMData(args)
 		dataRead:close()
 	end
 	
+	if dataPIN == nil then
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERRORWALLET", ARG2= playerid})
+	return
+	end
+	
 	if dataPIN ~= pin then
-	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= playerid})
+	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERRORPIN", ARG2= playerid})
 	return
 	end
 	
 	if count > dataCOUNT then
-	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= playerid})
+	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERRORCOUNT", ARG2= playerid})
 	return
 	end
 
@@ -137,23 +147,21 @@ local function ATMAccauntTransferData(data)
 		dataRead2:close()
 	end
 	
-	
+	if DATA2PIN == nil then
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERRORWALLET", ARG2= ARGsteamID})
+	return
+	end
 	
 	if ARGpin ~= DATA1PIN then
-		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= ARGsteamID})
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERRORPIN", ARG2= ARGsteamID})
 	return
 	end
 	
 	if ARGcount > DATA1COUNT then
-		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= ARGsteamID})
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERRORCOUNT", ARG2= ARGsteamID})
 	return
 	end
-	
-	if DATA2PIN == nil then
-		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= ARGsteamID})
-	return
-	end
-	
+		
 	
 	local dataFile1 = getFileWriter("/ServerATMData/" .. tostring(ARGsteamID) .. ".txt", false, false);
 		dataFile1:writeln(tostring(DATA1PIN));

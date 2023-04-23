@@ -1,4 +1,7 @@
 local function FindPlayer(PassportName)
+	local playerDEBUG = getPlayer()
+	playerDEBUG:Say(tostring(getNumActivePlayers()))
+
 	for	playerIndex = 0, getNumActivePlayers() - 1 do
 	local player = getSpecificPlayer(playerIndex)	
 	if(PassportName == getText("IGUI_Passport") .. " " .. player:getFullName()) then

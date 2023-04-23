@@ -1,3 +1,5 @@
 ItemName_RU = {	
 	ItemName_ProjectRP.Passport = "Паспорт",
+	ItemName_ProjectRP.BuildMaterials = "Строительные материалы",
+	ItemName_ProjectRP.Wheat = "Сено",
 }

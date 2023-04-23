@@ -1,0 +1,12 @@
+module ProjectRP {
+    imports {
+        Base
+    }
+    item BuildMaterials
+    {
+        Type         = Normal,
+        DisplayName  = BuildMaterials,
+        Icon         = Brick.png,
+        Weight       = 50,
+    }
+}

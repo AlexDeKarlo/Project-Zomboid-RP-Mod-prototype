@@ -35,7 +35,7 @@ industry_02_154 industry_02_155
 industry_02_156 industry_02_159
 
 Ферма собирать
-vegetation_farm_01_0 vegetation_farm_01_1
+vegetation_farm_01_0
 
 Ферма сдавать
 vegetation_farm_01_11
@@ -59,7 +59,7 @@ location_business_distillery_01_24 location_business_distillery_01_25 location_b
 location_business_distillery_01_4
 
 Бетономешалка
-constuction_01_6 constuction_01_7
+construction_01_6 construction_01_7
 
 Бетономешалка сдавать
-constuction_01_4
+construction_01_4

@@ -10,4 +10,12 @@ ContextMenu_RU = {
 	ContextMenu_ProjectRP_CHATTOMANYMONEY = "Операции более чем с 1000$ не доступны",
 	ContextMenu_ProjectRP_CHATTOLOWMONEY = "Недостаточно средств",
 	
+	ContextMenu_ProjectRP_ConcreteMixer = "Создать строительные материалы",
+	ContextMenu_ProjectRP_ConcreteMixerEnd = "Сложить строительные материалы",
+	
+	ContextMenu_ProjectRP_TOOFAR = "Слишком далеко, что бы использовать",
+	ContextMenu_ProjectRP_TOOMATCHITEMS = "Для начала нужно освободить инвентарь",
+	ContextMenu_ProjectRP_NOITEMS = "Нет предметов",
+	
+	ContextMenu_ProjectRP_WHEATTAKE = "Собрать сено",
 }

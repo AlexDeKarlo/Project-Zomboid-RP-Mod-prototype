@@ -1,0 +1,12 @@
+module ProjectRP {
+    imports {
+        Base
+    }
+    item Wheat
+    {
+        Type         = Normal,
+        DisplayName  = Wheat,
+        Icon         = WheatRP.png,
+        Weight       = 0.5,
+    }
+}

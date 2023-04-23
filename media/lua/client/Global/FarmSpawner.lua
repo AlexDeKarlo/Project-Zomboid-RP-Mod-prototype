@@ -5,6 +5,11 @@ local YMAX = 6711
 
 
 local function EveryTenMinutes()
+	player = getPlayer()
+	
+	if(player:getX()+30<XMIN or player:getX()-30>XMAX) then return end
+	if(player:getY()+30<YMIN or player:getY()-30>YMAX) then return end
+
 	for X = XMIN, XMAX, 1 do -- цикл от 1 до 10 с шагом 1
 		for Y = YMIN, YMAX, 1 do -- цикл от 1 до 10 с шагом 1
 			local sq = getSquare(X, Y, 0);

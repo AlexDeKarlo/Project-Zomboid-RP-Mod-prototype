@@ -3,3 +3,5 @@ poster=poster.png
 id=ProjectRP
 description=ProjectRP mod
 url=https://theindiestone.com/forums/
+pack=npcspack
+tiledef=npcspack 5015

@@ -3,7 +3,8 @@ if not isServer() then return end;
 -- Parse player data and save it to a .csv file inside Lua/ServerPlayersData/ folder
 local function SaveATMData(data)
     if data then
-	
+		
+		local steamid = data.steamID
 		local countINT = 0
 		local pin = nil
 			
@@ -21,6 +22,7 @@ local function SaveATMData(data)
 		dataFile:writeln(tostring(pin));
 		dataFile:writeln(tostring(data.count + countINT));
         dataFile:close()	
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMOK", ARG2= steamid})
     end
 end
 
@@ -50,12 +52,14 @@ local function ReciveATMData(args)
 	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= playerid})
 	return
 	end
-	
-	sendServerCommand("ProjectRP", "ATMRECIVEMONEYTOPLAYER", { ARG1 = count, ARG2= playerid})
+
 	local dataFile = getFileWriter("/ServerATMData/" .. tostring(wallet) .. ".txt", true, false);
 		dataFile:writeln(tostring(pin));
 		dataFile:writeln(tostring(dataCOUNT - count));
-        dataFile:close()	
+        dataFile:close()
+
+	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMOK", ARG2= playerid})
+	sendServerCommand("ProjectRP", "ATMRECIVEMONEYTOPLAYER", { ARG1 = count, ARG2= playerid})		
 end
 
 local function CreateATMACcauntData(data)
@@ -63,6 +67,7 @@ local function CreateATMACcauntData(data)
 	
 		local countINT = 0
 		local pin = "1234"
+		local steamid = data.steamID
 		
 		pin = data.pin
 		
@@ -78,7 +83,9 @@ local function CreateATMACcauntData(data)
         local dataFile = getFileWriter("/ServerATMData/" .. tostring(data.steamID) .. ".txt", false, false);
 		dataFile:writeln(tostring(pin));
 		dataFile:writeln(tostring(countINT));
-        dataFile:close()	
+        dataFile:close()
+
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMOK", ARG2= steamid})
     end
 end
 
@@ -100,6 +107,70 @@ local function ATMAccauntBalanceGetData(data)
     end
 end
 
+local function ATMAccauntTransferData(data)
+    if data then
+	
+	local ARGwallet= data.wallet
+	local ARGpin= data.pin
+	local ARGcount= data.count
+	local ARGsteamID = data.steamID
+	
+	local DATA1PIN = ""
+	local DATA1COUNT = 0
+	
+	local DATA2PIN = nil
+	local DATA2COUNT = 0
+	
+	local dataRead1 = getFileReader("/ServerATMData/" .. tostring(ARGsteamID) .. ".txt", false)
+	if dataRead1 then 
+		DATA1PIN = dataRead1:readLine()
+		countSTR = dataRead1:readLine()
+		DATA1COUNT = tonumber(countSTR)
+		dataRead1:close()
+	end
+	
+	local dataRead2 = getFileReader("/ServerATMData/" .. tostring(ARGwallet) .. ".txt", false)
+	if dataRead2 then 
+		DATA2PIN = dataRead2:readLine()
+		count2STR = dataRead2:readLine()
+		DATA2COUNT = tonumber(count2STR)
+		dataRead2:close()
+	end
+	
+	
+	
+	if ARGpin ~= DATA1PIN then
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= ARGsteamID})
+	return
+	end
+	
+	if ARGcount > DATA1COUNT then
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= ARGsteamID})
+	return
+	end
+	
+	if DATA2PIN == nil then
+		sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMERROR", ARG2= ARGsteamID})
+	return
+	end
+	
+	
+	local dataFile1 = getFileWriter("/ServerATMData/" .. tostring(ARGsteamID) .. ".txt", false, false);
+		dataFile1:writeln(tostring(DATA1PIN));
+		dataFile1:writeln(tostring(DATA1COUNT - ARGcount));
+        dataFile1:close()
+		
+	local dataFile2 = getFileWriter("/ServerATMData/" .. tostring(ARGwallet) .. ".txt", false, false);
+		dataFile2:writeln(tostring(DATA2PIN));
+		dataFile2:writeln(tostring(DATA2COUNT + ARGcount));
+        dataFile2:close()
+	
+	
+	sendServerCommand("ProjectRP", "SAYCOMMAND", { ARG1 = "IGUI_ATMOK", ARG2= ARGsteamID})
+    end
+end
+
+
 local onATMDataReceived = function(_module, command, player, args)   
 	
 	if command == "SendToATM" then      
@@ -116,6 +187,10 @@ local onATMDataReceived = function(_module, command, player, args)
 	
 	if command == "ATMAccauntBalanceGet" then    
         ATMAccauntBalanceGetData(args)
+	end 
+	
+	if command == "ATMACcauntTransfer" then    
+        ATMAccauntTransferData(args)
 	end 
 	
 end

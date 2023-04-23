@@ -49,6 +49,13 @@ local function UPDATE(player,NEWPIN)
 	CloseUI( _)	
 end
 
+local function TRANSFER(player,wallet,pin,count)
+	if player==nil or wallet == nil or pin==nil or count == nil or count <0 then return end
+	
+	ATMACcauntTransfer(player,wallet,pin,count)
+	CloseUI( _)	
+end
+
 local function BALANCE(player,NEWPIN)
 	GETATMACcauntBalance(_,_,_,player)
 	CloseUI( _)	
@@ -154,9 +161,14 @@ local function CreateATMTransferUI(player)
 	
 	UI:addText(_, getText("IGUI_ATMPLEASEPIN"))
 	UI:addEntry("PININPUT", "", false)
+    UI:nextLine()
+	
+	UI:addText(_, getText("IGUI_ATMRANSFERCOUNT"))
+	UI:addEntry("COUNTTRANSFER", "", true)
 	UI:nextLine()
+	
 	UI:addButton("button1", getText("IGUI_ATM_BACK"), function(button,args) Back(player) end)
-	UI:addButton("button2", getText("IGUI_ATMTRANSFERGO"), function(button,args) UPDATE(player,UI["PININPUT"]:getValue()) end)
+	UI:addButton("button2", getText("IGUI_ATMTRANSFERGO"), function(button,args) TRANSFER(player,UI["WALLETTOTRANSFER"]:getValue(),UI["PININPUT"]:getValue(),UI["COUNTTRANSFER"]:getValue()) end)
 	
     UI:setBorderToAllElements(true);                        
     UI:saveLayout();                                    

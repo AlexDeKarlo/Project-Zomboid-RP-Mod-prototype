@@ -1,7 +1,6 @@
 if isServer() then return end;
 
-function SendToATM(wallet,count)
-	local player = getPlayer()
+function SendToATM(wallet,count,player)
     local username = player:getUsername()
     
     local ToAtmData = {}
@@ -74,5 +73,24 @@ function GETATMACcauntBalance(wallet,pin,count,player)
 	print("Count "..tostring(FromAtmData.count))
 	
     sendClientCommand("ProjectRP", "ATMAccauntBalanceGet", FromAtmData)
+end
+
+function ATMACcauntTransfer(player,wallet,pin,count)
+
+    local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	
+	local FromAtmData = {}
+	
+    FromAtmData.wallet = wallet;
+	FromAtmData.pin = pin;
+    FromAtmData.count = count;
+	FromAtmData.steamID = steamID;
+	
+	print("Pin "..tostring(FromAtmData.pin))
+    print("Wallet "..tostring(FromAtmData.wallet))
+	print("Count "..tostring(FromAtmData.count))
+	
+    sendClientCommand("ProjectRP", "ATMACcauntTransfer", FromAtmData)
 end
 

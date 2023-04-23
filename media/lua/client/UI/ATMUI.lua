@@ -134,6 +134,34 @@ local function CreateATMAccauntUI(player)
     UI:saveLayout();                                    
 end
 
+local function CreateATMTransferUI(player)
+	UI = NewUI();
+	
+	local username = player:getUsername()
+	local steamID = getSteamIDFromUsername(username);
+	
+    UI:addText("", getText("IGUI_ATMIFNOTRANSFER"), "Title", "Center");
+	UI:nextLine()
+	UI:addImage("image1", "media/ui/atm.png")
+	UI:nextLine()
+	
+	UI:addText(_, getText("IGUI_ATM_YORENUM"))
+	UI:addText(_, getText("IGUI_ATMIFNOTRANSFER"))
+	UI:nextLine()
+	UI:addText("_", tostring(steamID))
+	UI:addEntry("WALLETTOTRANSFER", "", false)
+	UI:nextLine()
+	
+	UI:addText(_, getText("IGUI_ATMPLEASEPIN"))
+	UI:addEntry("PININPUT", "", false)
+	UI:nextLine()
+	UI:addButton("button1", getText("IGUI_ATM_BACK"), function(button,args) Back(player) end)
+	UI:addButton("button2", getText("IGUI_ATMTRANSFERGO"), function(button,args) UPDATE(player,UI["PININPUT"]:getValue()) end)
+	
+    UI:setBorderToAllElements(true);                        
+    UI:saveLayout();                                    
+end
+
 
 local function InComeUI(player)
   CloseUI( _)
@@ -150,6 +178,11 @@ local function AccauntUI(player)
   CreateATMAccauntUI(player)
 end
 
+local function TransferUI(player)
+  CloseUI( _)
+  CreateATMTransferUI(player)
+end
+
 function CreateATMUI(player)
 	CloseUI( _)
 	UI = NewUI()
@@ -161,7 +194,7 @@ function CreateATMUI(player)
 	UI:addButton("button1", getText("IGUI_ATM_IN"),function(button,args) InComeUI(player) end)
 	UI:addButton("button2", getText("IGUI_ATM_OUT"),function(button,args)  OutComeUI(player)  end)
 	UI:nextLine()
-	UI:addButton("button4", getText("IGUI_ATMTRANSFER"),function(button,args)  AccauntUI(player)  end)
+	UI:addButton("button4", getText("IGUI_ATMTRANSFER"),function(button,args)  TransferUI(player)  end)
 	UI:nextLine()
 	UI:addButton("button3", getText("IGUI_ATMIFNO"),function(button,args)  AccauntUI(player)  end)
 

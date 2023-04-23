@@ -5,7 +5,7 @@ local function SaveATMData(data)
     if data then
 	
 		local countINT = 0
-		local pin = "1234"
+		local pin = nil
 			
 		local dataRead = getFileReader("/ServerATMData/" .. tostring(data.wallet) .. ".txt", false)
 		if dataRead then 
@@ -14,7 +14,9 @@ local function SaveATMData(data)
 		countINT = tonumber(countSTR)
 		dataRead:close()
 		end
-				
+			
+		if(pin == nil) then return end
+			
         local dataFile = getFileWriter("/ServerATMData/" .. tostring(data.wallet) .. ".txt", false, false);
 		dataFile:writeln(tostring(pin));
 		dataFile:writeln(tostring(data.count + countINT));
@@ -63,6 +65,7 @@ local function CreateATMACcauntData(data)
 		local pin = "1234"
 		
 		pin = data.pin
+		
 		
 		local dataRead = getFileReader("/ServerATMData/" .. tostring(data.steamID) .. ".txt", false)
 		if dataRead then 

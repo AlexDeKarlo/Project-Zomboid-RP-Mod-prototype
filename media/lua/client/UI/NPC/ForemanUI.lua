@@ -41,7 +41,7 @@ function CreateForemanUI(player)
 	
     UI:addText("", getText("IGUI_NPCS_FOREMAN"), "Title", "Center");
     UI:nextLine()
-	UI:addImage("image1", "media/ui/NPC1.png")
+	UI:addImage("image1", "media/ui/NPC2.png")
 	UI:nextLine()
 	UI:addButton("button1", getText("IGUI_NPCS_FOREMAN_INFO"),function(button,args) CreateINFOUI(player) end)
 	UI:nextLine()

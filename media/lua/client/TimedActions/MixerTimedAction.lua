@@ -31,6 +31,7 @@ end
 function MixerTimedAction:perform() -- Trigger when the action is complete
     print("Action perform");
 	self.character:getInventory():AddItem("ProjectRP.BuildMaterials")
+	player:getXp():AddXP(Perks.Woodwork, 1)
     ISBaseTimedAction.perform(self);
 end
 
@@ -39,7 +40,8 @@ function MixerTimedAction:new(character) -- What to call in you code
     setmetatable(o, self);
     self.__index = self;
     o.character = character;
-    o.maxTime = 600; -- Time take by the action
+	o.woodworkLvl = character:getPerkLevel(Perks.Woodwork);
+    o.maxTime = 600- o.woodworkLvl*30; -- Time take by the action
     if o.character:isTimedActionInstant() then o.maxTime = 1; end
     return o;
 end

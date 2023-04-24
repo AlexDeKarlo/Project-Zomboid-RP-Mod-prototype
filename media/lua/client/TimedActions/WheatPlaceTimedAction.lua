@@ -51,7 +51,8 @@ function WheatPlaceTimedAction:new(character) -- What to call in you code
     setmetatable(o, self);
     self.__index = self;
     o.character = character;
-    o.maxTime = 60; -- Time take by the action
+	o.farmingLvl = character:getPerkLevel(Perks.Farming);
+    o.maxTime = 60 - o.farmingLvl*5; -- Time take by the action
     if o.character:isTimedActionInstant() then o.maxTime = 1; end
     return o;
 end

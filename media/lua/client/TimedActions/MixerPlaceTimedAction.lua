@@ -45,7 +45,8 @@ function MixerPlaceTimedAction:new(character) -- What to call in you code
     setmetatable(o, self);
     self.__index = self;
     o.character = character;
-    o.maxTime = 600; -- Time take by the action
+	o.woodworkLvl = character:getPerkLevel(Perks.Woodwork);
+    o.maxTime = 600 - o.woodworkLvl*30; -- Time take by the action
     if o.character:isTimedActionInstant() then o.maxTime = 1; end
     return o;
 end

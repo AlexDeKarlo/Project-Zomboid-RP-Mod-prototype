@@ -102,8 +102,8 @@ local function ReciveFromForemanFunc(data)
 		dataFile:close()
 
 		sendServerCommand("ProjectRP", "NPCSSAYWITHATTRIBUTECOMMAND", { ARG1 = "ContextMenu_ProjectRP_FOREMANCOUNTEND", ARG2= datacount, ARG3 = steamid})
-		sendServerCommand("ProjectRP", "NPCSSAYWITHATTRIBUTECOMMAND", { ARG1 = "ContextMenu_ProjectRP_FOREMANDMONEY", ARG2= datacount, ARG3 = steamid})
-		sendServerCommand("ProjectRP", "NPCGIVEMONEYCOMMAND", { ARG1 = datacount, ARG2= steamid})		
+		sendServerCommand("ProjectRP", "NPCSSAYWITHATTRIBUTECOMMAND", { ARG1 = "ContextMenu_ProjectRP_FOREMANDMONEY", ARG2= datacount*5, ARG3 = steamid})
+		sendServerCommand("ProjectRP", "NPCGIVEMONEYCOMMAND", { ARG1 = datacount*5, ARG2= steamid})		
 	end
 end
 

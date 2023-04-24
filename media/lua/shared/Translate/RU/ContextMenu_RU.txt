@@ -9,13 +9,24 @@ ContextMenu_RU = {
 	ContextMenu_ProjectRP_OpenATM = "Банкомат",
 	ContextMenu_ProjectRP_CHATTOMANYMONEY = "Операции более чем с 1000$ не доступны",
 	ContextMenu_ProjectRP_CHATTOLOWMONEY = "Недостаточно средств",
-	
-	ContextMenu_ProjectRP_ConcreteMixer = "Создать строительные материалы",
-	ContextMenu_ProjectRP_ConcreteMixerEnd = "Сложить строительные материалы",
-	
+		
 	ContextMenu_ProjectRP_TOOFAR = "Слишком далеко, что бы использовать",
 	ContextMenu_ProjectRP_TOOMATCHITEMS = "Для начала нужно освободить инвентарь",
 	ContextMenu_ProjectRP_NOITEMS = "Нет предметов",
 	
+	ContextMenu_ProjectRP_FARMER = "Говорить с фермером",
 	ContextMenu_ProjectRP_WHEATTAKE = "Собрать сено",
+	ContextMenu_ProjectRP_WHEATDROP = "Сложить сено",
+	ContextMenu_ProjectRP_WHEATCOUNT = "Количество сена: ",
+	ContextMenu_ProjectRP_WHEATCOUNTEND = "Сдано сена: ",
+	ContextMenu_ProjectRP_WHEATCOUNTENDMONEY = "Получено $:",
+	ContextMenu_ProjectRP_WHEATERROR = "Не за что получать деньги",
+	
+	ContextMenu_ProjectRP_FOREMAN = "Говорить с прорабом",
+	ContextMenu_ProjectRP_FOREMANTAKE = "Создать строительные материалы",
+	ContextMenu_ProjectRP_FOREMANDROP = "Сложить строительные материалы",
+	ContextMenu_ProjectRP_FOREMANCOUNT = "Количество строительных материалов: ",
+	ContextMenu_ProjectRP_FOREMANCOUNTEND = "Сдано строительных материалов: ",
+	ContextMenu_ProjectRP_FOREMANDMONEY = "Получено $:",
+	ContextMenu_ProjectRP_FOREMANERROR = "Не за что получать деньги",
 }

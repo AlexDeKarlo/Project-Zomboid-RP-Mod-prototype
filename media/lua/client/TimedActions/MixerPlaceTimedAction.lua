@@ -34,9 +34,9 @@ function MixerPlaceTimedAction:perform() -- Trigger when the action is complete
 	
 	invetory = self.character:getInventory()
 	item = invetory:FindAndReturn("ProjectRP.BuildMaterials")
-	
-	self.character:getInventory():AddItem("Base.Money")
 	self.character:getInventory():Remove(item)
+	
+	SendToForeman(self.character,1)
     ISBaseTimedAction.perform(self);
 end
 

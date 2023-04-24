@@ -3,7 +3,6 @@ if not isServer() then return end;
 -- Parse player data and save it to a .csv file inside Lua/ServerPlayersData/ folder
 local function SaveATMData(data)
     if data then
-		
 		local steamid = data.steamID
 		local countINT = 0
 		local pin = nil

@@ -27,4 +27,14 @@ IGUI_RU = {
 	IGUI_ATM_OUT = "Снять",
 	IGUI_ATM_BACK = "Вернуться",
 	IGUI_ATM_COUNT = "Сумма",
+	
+	IGUI_NPCS_FARM = "Фермер",
+	IGUI_NPCS_FARM_INFO = "Спросить про ферму",
+	IGUI_NPCS_FARM_GET = "Сдать сено",
+	IGUI_NPCS_FARMERTEXT = "Эх старена, собирай сено <LINE> Таскай ее в тюк <LINE> Я плачу 1$ за 5 сена!",
+	
+	IGUI_NPCS_FOREMAN = "Прораб",
+	IGUI_NPCS_FOREMAN_INFO = "Спросить про стройку",
+	IGUI_NPCS_FOREMAN_GET = "Сдать строительные материалы",
+	IGUI_NPCS_FOREMANTEXT = "Короче, строительные материалы можно сделать в бетономешалке <LINE> Таскай их к поддону <LINE> Я плачу 1$ за 1 строительный материал!",
 }

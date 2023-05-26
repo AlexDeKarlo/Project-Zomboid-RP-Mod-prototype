@@ -29,4 +29,14 @@ ContextMenu_RU = {
 	ContextMenu_ProjectRP_FOREMANCOUNTEND = "Сдано строительных материалов: ",
 	ContextMenu_ProjectRP_FOREMANDMONEY = "Получено $:",
 	ContextMenu_ProjectRP_FOREMANERROR = "Не за что получать деньги",
+	
+	ContextMenu_ProjectRP_ELEVATOR_FACTORY_IN = "Подняться на фабрику",
+	ContextMenu_ProjectRP_ELEVATOR_FACTORY_FROM = "Выйти с фабрики",
+	ContextMenu_ProjectRP_ELEVATOR_FACTORY_ERRORIN = "Проносить любые сумки на фабрику запрещено!",
+	ContextMenu_ProjectRP_ELEVATOR_FACTORY_ERRORFROM = "Выносить материалы с фабрики запрещено!",
+	ContextMenu_ProjectRP_ELEVATOR_FACTORY_ERRORTIME = "Прежде чем использовать, закончите действие",
+	
+
+	ContextMenu_ProjectRP_FACTORYMAN = "Поговорить с владельцем фабрики",
+
 }

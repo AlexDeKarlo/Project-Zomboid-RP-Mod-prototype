@@ -37,4 +37,99 @@ IGUI_RU = {
 	IGUI_NPCS_FOREMAN_INFO = "Спросить про стройку",
 	IGUI_NPCS_FOREMAN_GET = "Сдать строительные материалы",
 	IGUI_NPCS_FOREMANTEXT = "Короче, строительные материалы можно сделать в бетономешалке <LINE> Таскай их к поддону <LINE> Я плачу 5$ за 1 строительный материал!",
+	
+	IGUI_NPCS_FACTORYMAN = "Владелец фабрики",
+	IGUI_NPCS_FACTORYMAN_INFO = "Спросить про фабрику",
+	IGUI_NPCS_FACTORYMAN_GET = "Сдать компоненты",
+	IGUI_NPCS_FACTORYMANTEXT = "Добро пожаловать но мою фабрику. <LINE> На ней ты можешь произоводить различные материалы <LINE> Каждый материал имеет свою сложность создания и свою цену!",
+	IGUI_NPCS_FACTORYMANPRICE_INFO = "Узнать стоимость материалов",
+	IGUI_NPCS_FACTORYMANPRICE = "Ниже приведена стоимость каждого материала <LINE>Непригодная древесина - 1$  <LINE> Мелкие ветви - 3$ <LINE> Древесная ветвь - 5$ <LINE> Прочная палка - 7$ <LINE> Доска для розжига - 10$ <LINE> Бревно - 15$ <LINE> Доска - 18$ <LINE> Дверная ручка - 20$ <LINE> Непригодный металл - 1$  <LINE> Металалом - 3$ <LINE> Скрепка - 5$ <LINE> Гвозь - 2$ <LINE> Болты - 3$ <LINE> Алюминий - 16$ <LINE> Присадочные прутки - 17$ <LINE> Проволока - 20$ <LINE> Маленький лист металла - 22$ <LINE> Лист металла - 24$ <LINE> Дверная петля - 28$ <LINE> Электронные запчасти - 1$  <LINE> Электронный провод - 3$ <LINE> Усилитель - 5$ <LINE> Приемник - 9$ <LINE> Радио передатчик - 11$ <LINE> Радио приемник - 14$ <LINE> сенсор движения - 16$ <LINE> Батарейка - 20$",
+	IGUI_NPCS_FACTORYMAN_NOITEMS = "Нечего сдавать",
+	IGUI_NPCS_FACTORYMAN_GIVEITEMS = "Вы сдали материалов на: ",
+	
+	IGUI_RPCRAFT_GETSOMECRAFT = "Выберите крафт"
+	IGUI_RPCRAFT_GETSOMECRAFTSTART = "Создать"
+	
+	IGUI_RPCRAFT_WOOD = "Деревообрабатывающий станок",
+	IGUI_RPCRAFT_WOODCRAFT = "Создание на деревообрабатывающем станке",
+	IGUI_RPCRAFT_WOODWHENFINISH = "Прогресс крафта", 
+	IGUI_RPCRAFT_WOODWHATWENEED = "Необходимо найти символ X, среди символов",
+	IGUI_RPCRAFT_WOODCRAFTCOMPLEATE = "Крафт завершен",
+	IGUI_RPCRAFT_WOODCRAFTFAIL = "Крафт неудался",
+	IGUI_RPCRAFT_WOODGETSOMECRAFT = "Нажмите по крафту"
+	
+	IGUI_RPCRAFT_WOODCRAFT_UnusableWood = "Создать непригодную древесину"
+	IGUI_RPCRAFT_WOODCRAFT_Twigs = "Создать мелкие ветки"
+	IGUI_RPCRAFT_WOODCRAFT_TreeBranch = "Создать древесную ветвь"
+	IGUI_RPCRAFT_WOODCRAFT_WoodenStick = "Создать прочную палку"
+	IGUI_RPCRAFT_WOODCRAFT_PercedWood = "Создать доску для розжига"
+	IGUI_RPCRAFT_WOODCRAFT_Log = "Создать бревно"
+	IGUI_RPCRAFT_WOODCRAFT_Plank = "Создать доску"
+	IGUI_RPCRAFT_WOODCRAFT_Doorknob = "Создать дверную ручку"
+	
+	IGUI_RPCRAFT_METAL = "Металообрабатывающий станок",
+	IGUI_RPCRAFT_METALCRAFT = "Создание на металообрабатывающем станке",
+	IGUI_RPCRAFT_METALWHENFINISH = "Прогресс крафта",
+	IGUI_RPCRAFT_METALWHATWENEED = "Необходимо довести нижние значения, до верхних",
+	IGUI_RPCRAFT_METALCRAFTCOMPLEATE = "Крафт завершен",
+	IGUI_RPCRAFT_METALCRAFTFAIL = "Крафт неудался",
+	
+	IGUI_RPCRAFT_METALCRAFT_UnusableMetal = "Создать непригодный металл"
+	IGUI_RPCRAFT_METALCRAFT_ScrapMetal = "Создать металалом"
+	IGUI_RPCRAFT_METALCRAFT_Paperclip = "Создать скрепку"
+	IGUI_RPCRAFT_METALCRAFT_Nails = "Создать гводь"
+	IGUI_RPCRAFT_METALCRAFT_Screws = "Создать болт"
+	IGUI_RPCRAFT_METALCRAFT_Aluminum = "Создать алюминиум"
+	IGUI_RPCRAFT_METALCRAFT_WeldingRods = "Создать присадочные прутки"
+	IGUI_RPCRAFT_METALCRAFT_Wire = "Создать проволоку"
+	IGUI_RPCRAFT_METALCRAFT_SmallSheetMetal = "Создать маленький лист металла"
+	IGUI_RPCRAFT_METALCRAFT_SheetMetal = "Создать лист металла"
+	IGUI_RPCRAFT_METALCRAFT_Hinge = "Создать дверную петлю"
+
+	
+	IGUI_RPCRAFT_ELECTRICITY = "Станок электрочастей",
+	IGUI_RPCRAFT_ELECTRICITYCRAFT = "Создание на станке электрочастей",
+	IGUI_RPCRAFT_ELECTRICITYWHENFINISH = "Прогресс крафта",
+	IGUI_RPCRAFT_ELECTRICITYWHATWENEED = "Необходимо решить математический пример",
+	IGUI_RPCRAFT_ELECTRICITYCRAFTCOMPLEATE = "Крафт завершен",
+	IGUI_RPCRAFT_ELECTRICITYCRAFTFAIL = "Крафт неудался",
+	
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_ElectricScrap = "Создать электронные запчасти"
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_ElectricWire = "Создать электронный провод"
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_Amplifier = "Создать усилитель"
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_Receiver = "Создать приемник"
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_RadioTransmitter = "Создать радио передатчик"
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_RadioReceiver = "Создать радио приемник"
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_MotionSensor = "Создать сенсор движения"
+	IGUI_RPCRAFT_ELECTRICITYCRAFT_Battery = "Создать батарейка"
+
+
+	IGUI_RPCRAFT_PRICE_1 = "Непригодная древесина - 1$"
+	IGUI_RPCRAFT_PRICE_2 = "Мелкие ветви - 3$"
+	IGUI_RPCRAFT_PRICE_3 = "Древесная ветвь - 5$"
+	IGUI_RPCRAFT_PRICE_4 = "Прочная палка - 7$"
+	IGUI_RPCRAFT_PRICE_5 = "Доска для розжига - 10$"
+	IGUI_RPCRAFT_PRICE_6 = "Бревно - 15$"
+	IGUI_RPCRAFT_PRICE_7 = "Доска - 18$"
+	IGUI_RPCRAFT_PRICE_8 = "Дверная ручка - 20$"
+	IGUI_RPCRAFT_PRICE_9 = "Непригодный металл - 1$"
+	IGUI_RPCRAFT_PRICE_10 = "Металалом - 3$"
+	IGUI_RPCRAFT_PRICE_11 = "Скрепка - 5$"
+	IGUI_RPCRAFT_PRICE_12 = "Гвозь - 2$"
+	IGUI_RPCRAFT_PRICE_13 = "Болты - 3$"
+	IGUI_RPCRAFT_PRICE_14 = "Алюминий - 16$"
+	IGUI_RPCRAFT_PRICE_15 = "Присадочные прутки - 17$"
+	IGUI_RPCRAFT_PRICE_16 = "Проволока - 20$"
+	IGUI_RPCRAFT_PRICE_17 = "Маленький лист металла - 22$"
+	IGUI_RPCRAFT_PRICE_18 = "Лист металла - 24$"
+	IGUI_RPCRAFT_PRICE_19 = "Дверная петля - 28$"
+	IGUI_RPCRAFT_PRICE_20 = "Электронные запчасти - 1$"
+	IGUI_RPCRAFT_PRICE_21 = "Электронный провод - 3$"
+	IGUI_RPCRAFT_PRICE_22 = "Усилитель - 5$"
+	IGUI_RPCRAFT_PRICE_23 = "Приемник - 9$"
+	IGUI_RPCRAFT_PRICE_24 = "Радио передатчик - 11$"
+	IGUI_RPCRAFT_PRICE_25 = "Радио приемник - 14$"
+	IGUI_RPCRAFT_PRICE_26 = "Сенсор движения - 16$"
+	IGUI_RPCRAFT_PRICE_27 = "Батарейка - 20$"
+	
 }

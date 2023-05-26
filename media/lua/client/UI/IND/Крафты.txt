@@ -1,0 +1,39 @@
+В пиле:
+
+ИЗ БРЕВНО Base:Log
+
+ДОСКА Base:Plank
+ДОСКА ДЛЯ РОЗЖИГА Base:PercedWood
+ДРЕВЕСНАЯ ВЕТВЬ Base:TreeBranch
+МЕЛКИЕ ВЕТКИ Base:Twigs
+ПРОЧНАЯ ПАЛКА Base:WoodenStick
+ДВЕРНАЯ РУЧКА Base:Doorknob
+НЕПРИГОДНАЯ ДРЕВЕСИНА Base:UnusableWood
+
+
+В электронике
+
+ЭЛЕКТРОННЫЕ ЗАПЧАСТИ Base:ElectronicsScrap
+УСИЛИТЕЛЬ Base:Amplifier
+ПРИЕМНИК Base:Receiver
+БАТАРЕЙКА Base:Battery
+РАДИО ПЕРЕДАТЧИК Base:RadioTransmitter
+РАДИО ПРИЕМНИК Base:RadioReceiver
+СЕНСОР ДВИЖЕНИЯ Base:MotionSensor
+ЭЛЕКТРОННЫЙ ПРОВОД Base:ElectricWire
+
+
+В Метале
+
+МЕТАЛАЛОМ Base:ScrapMetal -- ДОБАВИТЬ
+АЛЮМИНИЙ Base:Aluminum
+БОЛТ Base:Screws
+ГВОЗДЬ Base:Nails
+ДВЕРНАЯ ПЕТЛЯ Base:Hinge
+ЛИСТ МЕТАЛЛА Base:SheetMetal
+МАЛЕНЬКИЙ ЛИСТ МЕТАЛЛА Base:SmallSheetMetal
+НЕПРИГОДНЫЙ МЕТАЛ Base:UnusableMetal
+ПРИСАДОЧНЫЕ ПРУТКИ Base:WeldingRods
+ПРОВОЛОКА Base:Wire
+СКРЕПКА Base:Paperclip
+

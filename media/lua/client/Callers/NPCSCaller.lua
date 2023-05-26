@@ -56,3 +56,17 @@ function ReciveFromForeman(player,count)
 	
     sendClientCommand("ProjectRP", "ReciveFromForeman", Data)
 end
+
+function ReciveFromFabricman(player,count)
+
+    local username = player:getUsername()
+    local Data = {}
+	
+	Data.steamID = getSteamIDFromUsername(username);
+    Data.count = count;
+   
+    print("SteamID "..tostring(Data.steamID))
+	print("Count "..tostring(Data.count))
+	
+    sendClientCommand("ProjectRP", "ReciveFromFabricman", Data)
+end

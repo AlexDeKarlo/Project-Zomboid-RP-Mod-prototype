@@ -107,6 +107,15 @@ local function ReciveFromForemanFunc(data)
 	end
 end
 
+local function ReciveFromFabricmanFunc(data)
+    if data then
+		local steamid = data.steamID
+		local count = data.count
+			
+		sendServerCommand("ProjectRP", "NPCGIVEMONEYCOMMAND", { ARG1 = count, ARG2= steamid})		
+	end
+end
+
 local NPCSDataReceived = function(_module, command, player, args)   
 	
 	if command == "SendToFarmer" then  	
@@ -124,6 +133,11 @@ local NPCSDataReceived = function(_module, command, player, args)
 	if command == "ReciveFromForeman" then    
         ReciveFromForemanFunc(args)
 	end 
+	
+	if command == "ReciveFromFabricman" then    
+        ReciveFromFabricmanFunc(args)
+	end
+	
 end
 
 

@@ -20,4 +20,4 @@ The goal of this prototype is to:
 
 This is not a finished mod — it is a technical prototype.
 
-[![GameConsole Demo](https://img.youtube.com/vi/11PuG1SQQDI/maxresdefault.jpg)]((https://www.youtube.com/watch?v=11PuG1SQQDI))
+[![Project-Zomboid-RP-Mod-prototype](https://img.youtube.com/vi/11PuG1SQQDI/maxresdefault.jpg)](https://www.youtube.com/watch?v=11PuG1SQQDI)
